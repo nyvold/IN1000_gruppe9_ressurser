@@ -1,13 +1,13 @@
+
 x = 10
 
 def ytre():
     x = 20
-    def indre():
-        x = 30
-        print("Inne i indre:", x)
-    indre()
-    print("Inne i ytre:", x)
+    def indre(y):
+        x = y
+        print("Inne i indre", x)
+    indre(x)
+    print("Inne i ytre", x)
 
 ytre()
-print("Utenfor alle funksjoner:", x)
-
+print("utenfor alle funksjoner", x)
