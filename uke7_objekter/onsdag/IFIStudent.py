@@ -1,13 +1,12 @@
 # lag en ifi student med 3 metoder: 
-# metode for å legge til en forening
-# lag en fag klasse, med emnenummer, faglærer, fagområde
+from Fag import Fag
 
 class IFIStudent:
-    def __init__(self, navn, forening, linje, fav_databrus):
+    def __init__(self, navn, forening, linje):
         self.navn = navn
         self.forening = forening
         self.linje = linje
-        self.fav_databrus = fav_databrus
+        self.fag = []
     
     # hent_forening:
     def hent_en_forening(self):
@@ -30,18 +29,38 @@ class IFIStudent:
                 return "Lawo"
             else:
                 return "Mastermind"
+    
+    # metode for å legge til en forening
+    def legg_til_forening(self, ny_forening):
+        if self.forening:
+            if type(self.forening) == list:
+                self.forening.append(ny_forening)
+            else:
+                foreninger = [self.forening]
+                foreninger.append(ny_forening)
+                self.forening = foreninger
+        else:
+            self.forening = []
+            self.forening.append(ny_forening)
 
 
 
-student1 = IFIStudent("Jonas", ["Navet", "MAPS"], "Prosa", "Monster peachberry")
-student2 = IFIStudent("Halvor", "Navet", "Prosa", None)
-student3 = IFIStudent("Henning", None, "Robotikk", "RedBull")
 
-studenter = [student1, student2, student3]
-puber = []
+student1 = IFIStudent("Jonas", ["Navet", "MAPS"], "Prosa")
+student2 = IFIStudent("Halvor", "Navet", "Prosa")
+student3 = IFIStudent("Henning", None, "Robotikk")
 
-for student in studenter:
-    pub = student.beregn_pub()
-    puber.append(pub)
+print(student3.forening)
+student3.legg_til_forening("Progsys")
+print(student3.forening)
 
-print(puber)
+
+fag1 = Fag("5020", "Roman", "IN")
+fag2 = Fag("5060", "Carsten", "IN")
+fag3 = Fag("5320", "Terje", "IN")
+
+student1.fag.extend([fag1, fag2, fag3])
+
+for fag in student1.fag:
+    print(fag.emnekode())
+
