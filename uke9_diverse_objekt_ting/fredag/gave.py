@@ -4,4 +4,4 @@ class Gave:
         self.giver = giver
     
     def __str__(self):
-        return self.giver + " ga deg " + self.beskrivelse
+        return self.giver + " ga deg " + self.beskrivelse   
