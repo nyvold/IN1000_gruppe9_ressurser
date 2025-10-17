@@ -10,6 +10,9 @@ class Onske:
     def hent_beskrivelse(self):
         return self.beskrivelse
     
+    def hent_minpris(self):
+        return self.min_pris
+    
     def __str__(self):
         return self.beskrivelse + " Pris: " + self.min_pris
 
