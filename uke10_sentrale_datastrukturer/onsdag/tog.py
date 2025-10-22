@@ -15,12 +15,14 @@ class Tog:
                 vogn = vogn.neste
             vogn.neste = ny_vogn
     
-    def skriv_ut_hele(self):
+    def __str__(self):
+        s = ""
         vogn = self.forste
         print("Toget:")
         while vogn is not None:
-            print(f"{vogn} -> ")
+            s += f"{vogn} -> "
             vogn = vogn.neste
+        return s
         
 tog = Tog()
 
@@ -32,5 +34,5 @@ tog.legg_til_vogn(v1)
 tog.legg_til_vogn(v2)
 tog.legg_til_vogn(v3)
 
-tog.skriv_ut_hele()
+print(tog)
         
